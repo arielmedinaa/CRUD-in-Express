@@ -1,0 +1,32 @@
+{
+  "name": "nodejscourse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon http.js",
+    "dev2": "nodemon ./clase-2-Api-Express/express.js",
+    "dev3": "nodemon ./clase-2-Api-Express/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "5.1.0",
+    "multer": "^2.0.2",
+    "pg": "^8.16.3",
+    "standard": "^17.1.2",
+    "xlsx": "^0.18.5"
+  },
+  "eslintConfig": {
+    "extends": [
+      "standard"
+    ]
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
