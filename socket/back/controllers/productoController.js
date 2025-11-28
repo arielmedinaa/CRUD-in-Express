@@ -1,4 +1,4 @@
-import { getProducts, salidaStock, entradaStock } from "../service/producto.js";
+import { getProducts, salidaStock, entradaStock, getHistorial } from "../service/producto.js";
 import { broadcastStockUpdate } from "../sockets/index.js";
 
 export const getProductsController = async (req, res) => {
@@ -22,4 +22,9 @@ export const entradaStockController = async (req, res) => {
     console.log("Producto actualizado:", updatedProduct);
     broadcastStockUpdate(updatedProduct.stock);
     res.json({ producto: updatedProduct, message: "Stock actualizado" });
+};
+
+export const getHistorialController = async (req, res) => {
+    const historial = await getHistorial();
+    res.json(historial);
 };

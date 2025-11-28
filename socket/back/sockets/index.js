@@ -1,4 +1,5 @@
 import WebSocket from "ws";
+import { getHistorial } from "../service/producto.js";
 
 let wssGlobal;
 
@@ -16,13 +17,17 @@ export function socketHandler(wss) {
     });
 }
 
-export function broadcastStockUpdate(stock) {
+export async function broadcastStockUpdate(stock) {
     console.log("Broadcasting stock update:", stock);
     if (!wssGlobal) return;
 
+    const historial = await getHistorial();
+
+    console.log("Historial:", historial);
+
     wssGlobal.clients.forEach((client) => {
         if (client.readyState === WebSocket.OPEN) {
-            client.send(JSON.stringify({ stock }));
+            client.send(JSON.stringify({ stock, historial }));
         }
     });
 }
